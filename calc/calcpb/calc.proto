@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package calcpb;
+
+option go_package = ".;calcpb";
+
+message Calculate {
+  int64 number = 1;
+}
+
+message CalculateRequest {
+  Calculate calc = 1;
+}
+
+message CalculateResponse {
+  int64 res = 1;
+}
+
+service CalcService {
+  rpc Calculate(CalculateRequest) returns (stream CalculateResponse) {};
+}
+
+
+
